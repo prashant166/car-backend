@@ -15,8 +15,11 @@ const router = express.Router();
 // Route to create a new car
 router.post('/', authMiddleware, upload, createCar);
 
-// Route to get all cars with search functionality
-router.get('/', authMiddleware, getCars);
+// Route to search cars by title, description, or tags
+router.get('/search', authMiddleware, getCars); // Dedicated search route
+
+// Route to get all cars (without search functionality)
+router.get('/', authMiddleware, getCars); // This can be used to list all cars without filtering
 
 // Route to get all cars for a specific user
 router.get('/user', authMiddleware, getUserCars);

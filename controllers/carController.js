@@ -26,16 +26,16 @@ const createCar = async (req, res) => {
 
 // Get all cars with search functionality
 const getCars = async (req, res) => {
-  const { query } = req.query;
+  const { q } = req.query; // Change to 'q' to match the frontend query parameter
   let whereClause = {};
 
   // Search based on title, description, or tags if a query is provided
-  if (query) {
+  if (q) {
     whereClause = {
       [Op.or]: [
-        { title: { [Op.iLike]: `%${query}%` } },
-        { description: { [Op.iLike]: `%${query}%` } },
-        { tags: { [Op.contains]: [query] } } // Assumes tags is an array
+        { title: { [Op.iLike]: `%${q}%` } },
+        { description: { [Op.iLike]: `%${q}%` } },
+        { tags: { [Op.contains]: [q] } }, // Assumes tags is an array
       ],
     };
   }
