@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 4646;
 
 // Middleware
 app.use(cors({
-  origin: 'http://localhost:3000', 
+  origin: "https://spontaneous-longma-2f7107.netlify.app", 
   credentials: true,              
 }));
 app.use(express.json()); // Parses JSON bodies
